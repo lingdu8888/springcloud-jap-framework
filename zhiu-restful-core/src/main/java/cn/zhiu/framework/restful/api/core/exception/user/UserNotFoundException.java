@@ -13,4 +13,5 @@ import cn.zhiu.framework.base.api.core.exception.RestfulApiException;
 @ExceptionCode(code = "CU0001", desc = "用户信息未找到")
 public class UserNotFoundException extends RestfulApiException {
     private static final long serialVersionUID = 8247831302664346130L;
+
 }
