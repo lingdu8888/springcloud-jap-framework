@@ -19,7 +19,6 @@ import java.util.Map;
 
 /**
  * Loader组件, 通过注解载入对应属性
- * Created by wuzhao on 2016/12/29.
  */
 public class LoaderServiceComponent {
     protected final transient Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -29,7 +28,9 @@ public class LoaderServiceComponent {
 
     /**
      * 载入一个对象中所有需要动态加载的内容
+     *
      * @param object 要加载内容的对象
+     *
      * @throws LoaderServiceException
      */
     public void loadAll(Object object) throws LoaderServiceException {
@@ -53,7 +54,7 @@ public class LoaderServiceComponent {
                         // 取到了扩展, 逐个类型处理
                         if (extension instanceof ILoaderServiceGroupByExtension) {
                             // 分组扩展
-                            ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension)extension;
+                            ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension) extension;
                             if (!groupByExtension.isMatchGroup(object, field.getName())) {
                                 // 不符合分组条件, 跳过处理
                                 continue;
@@ -74,8 +75,10 @@ public class LoaderServiceComponent {
 
     /**
      * 载入一个对象中指定需要动态加载的内容
-     * @param object 要加载内容的对象
+     *
+     * @param object   要加载内容的对象
      * @param property 要加载内容的属性名
+     *
      * @throws LoaderServiceException
      */
     public void load(Object object, String property) throws LoaderServiceException {
@@ -97,7 +100,7 @@ public class LoaderServiceComponent {
                     // 取到了扩展, 逐个类型处理
                     if (extension instanceof ILoaderServiceGroupByExtension) {
                         // 分组扩展
-                        ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension)extension;
+                        ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension) extension;
                         if (!groupByExtension.isMatchGroup(object, field.getName())) {
                             // 不符合分组条件, 跳过处理
                             return;
@@ -141,9 +144,11 @@ public class LoaderServiceComponent {
 
     /**
      * 载入一个对象中所有需要动态加载的内容
-     * @param iterable 要加载内容的对象集
+     *
+     * @param iterable    要加载内容的对象集
      * @param objectClass 要加载内容的对象的类型描述
-     * @param <T> 单一对象的类型
+     * @param <T>         单一对象的类型
+     *
      * @throws LoaderServiceException
      */
     public <T> void loadAllBatch(Iterable<T> iterable, Class<T> objectClass) throws LoaderServiceException {
@@ -168,10 +173,12 @@ public class LoaderServiceComponent {
 
     /**
      * 载入一个对象中所有需要动态加载的内容
-     * @param iterable 要加载内容的对象集
+     *
+     * @param iterable    要加载内容的对象集
      * @param objectClass 要加载内容的对象的类型描述
-     * @param property 要加载内容的属性名
-     * @param <T> 单一对象的类型
+     * @param property    要加载内容的属性名
+     * @param <T>         单一对象的类型
+     *
      * @throws LoaderServiceException
      */
     public <T> void loadBatch(Iterable<T> iterable, Class<T> objectClass, String property) throws LoaderServiceException {
@@ -208,7 +215,7 @@ public class LoaderServiceComponent {
                 // 取到了扩展, 逐个类型处理
                 if (extension instanceof ILoaderServiceGroupByExtension) {
                     // 分组扩展
-                    ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension)extension;
+                    ILoaderServiceGroupByExtension groupByExtension = (ILoaderServiceGroupByExtension) extension;
                     if (!groupByExtension.isMatchGroup(object, field.getName())) {
                         // 不符合分组条件, 跳过处理
                         continue;
@@ -232,7 +239,7 @@ public class LoaderServiceComponent {
 
         Object invokeResult = method.invoke(serviceObject, methodParameters);
 
-        Map<?, ?> resultMap = (Map<?, ?>)invokeResult;
+        Map<?, ?> resultMap = (Map<?, ?>) invokeResult;
 
         for (T object : iterable) {
             PropertyUtils.setProperty(object, field.getName(), resultMap.get(PropertyUtils.getProperty(object, attribute)));

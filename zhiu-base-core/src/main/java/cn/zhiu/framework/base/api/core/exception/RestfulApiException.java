@@ -3,9 +3,6 @@ package cn.zhiu.framework.base.api.core.exception;
 
 import cn.zhiu.framework.base.api.core.annotation.exception.ExceptionCode;
 
-/**
- * Created by wuzhao on 2016/11/21.
- */
 @ExceptionCode(code = "RA9999", desc = "系统内部错误", recoverDesc = true)
 public class RestfulApiException extends ZhiuException {
 
