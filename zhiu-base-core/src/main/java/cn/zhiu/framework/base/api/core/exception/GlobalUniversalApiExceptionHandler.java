@@ -58,7 +58,8 @@ public class GlobalUniversalApiExceptionHandler {
     @ExceptionHandler(value = Exception.class)
 //    @ResponseBody
     public void exceptionErrorHandler(Exception e) throws Exception {
-        logger.error(e.getMessage());
+        throw new RuntimeException(e);
+//        logger.error(e.getMessage());
     }
 
 }

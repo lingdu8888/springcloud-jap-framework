@@ -2,13 +2,13 @@ package cn.zhiu.framework.restful.api.core.bean;
 
 /**
  * 抽象的基础bean
- * Created by sunshow on 7/23/15.
  */
 public class CommonBaseRestfulApiBean implements BaseRestfulApiBean {
 
-    private static final long serialVersionUID = -5412390275419624143L;
-
+    private static final long serialVersionUID = 7062911059028505557L;
+    
     public static final String SUCCESS_CODE = "000000";
+
 
     private String code = SUCCESS_CODE;
 
