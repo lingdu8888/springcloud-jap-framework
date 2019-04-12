@@ -15,16 +15,16 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Objects;
 
-public class HandlerMethodPostArgumentResolver implements HandlerMethodArgumentResolver {
+public class HandlerMethodBodyArgumentResolver implements HandlerMethodArgumentResolver {
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
-        return methodParameter.hasParameterAnnotation(RequestPostParam.class);
+        return methodParameter.hasParameterAnnotation(RequestBodyParam.class);
     }
 
     @Override
     public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
 
-        RequestPostParam parameterAnnotation = methodParameter.getParameterAnnotation(RequestPostParam.class);
+        RequestBodyParam parameterAnnotation = methodParameter.getParameterAnnotation(RequestBodyParam.class);
 
         String name = parameterAnnotation.name();
 

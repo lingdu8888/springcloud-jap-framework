@@ -1,6 +1,6 @@
 package cn.zhiu.framework.base.api.core.config;
 
-import cn.zhiu.framework.base.api.core.annotation.request.HandlerMethodPostArgumentResolver;
+import cn.zhiu.framework.base.api.core.annotation.request.HandlerMethodBodyArgumentResolver;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,6 +11,6 @@ import java.util.List;
 public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-        resolvers.add(new HandlerMethodPostArgumentResolver());
+        resolvers.add(new HandlerMethodBodyArgumentResolver());
     }
 }
