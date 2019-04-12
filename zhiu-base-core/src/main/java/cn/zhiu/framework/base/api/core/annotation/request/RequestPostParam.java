@@ -49,13 +49,5 @@ public @interface RequestPostParam {
     @AliasFor("value")
     String name() default "";
 
-    /**
-     * Default value string.
-     *
-     * @return the string
-     *
-     * @author zhuzz
-     * @time 2019 /04/12 00:42:03
-     */
-    String defaultValue() default "";
+  
 }
