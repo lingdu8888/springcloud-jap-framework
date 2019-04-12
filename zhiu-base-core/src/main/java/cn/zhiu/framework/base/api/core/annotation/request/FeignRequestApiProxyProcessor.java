@@ -54,10 +54,11 @@ public class FeignRequestApiProxyProcessor extends AbstractProcessor {
             PackageElement packageElement = elementUtils.getPackageOf(typeElement);
             String name = typeElement.getSimpleName().toString();
 
-            TypeSpec.Builder typeSpecBuilder = TypeSpec.classBuilder(String.format("Q%sProxy", name)).addModifiers(Modifier.PUBLIC, Modifier.FINAL);
+            TypeSpec.Builder typeSpecBuilder = TypeSpec.classBuilder(String.format("Feign%sProxy", name)).addModifiers(Modifier.PUBLIC, Modifier.FINAL);
             typeSpecBuilder.addAnnotation(RestController.class);
 
-            FieldSpec.Builder builder = FieldSpec.builder(ClassName.get(typeElement), StringUtils.capitalize(name), Modifier.PRIVATE);
+            String capitalizeName = StringUtils.capitalize(name);
+            FieldSpec.Builder builder = FieldSpec.builder(ClassName.get(typeElement), capitalizeName, Modifier.PRIVATE);
             builder.addAnnotation(Autowired.class);
             typeSpecBuilder.addField(builder.build());
 
@@ -81,7 +82,7 @@ public class FeignRequestApiProxyProcessor extends AbstractProcessor {
                         parameterNames.add(oldParameter.getSimpleName().toString());
                     }
                     CodeBlock.Builder codeBlockBuilder = CodeBlock.builder();
-                    codeBlockBuilder.addStatement(String.format("return %s.%s(%s)", StringUtils.capitalize(name), oldMethodElement.getSimpleName().toString(), String.join(",", parameterNames)));
+                    codeBlockBuilder.addStatement(String.format("return %s.%s(%s)", capitalizeName, oldMethodElement.getSimpleName().toString(), String.join(",", parameterNames)));
                     methodBuilder.addCode(codeBlockBuilder.build());
                     typeSpecBuilder.addMethod(methodBuilder.build());
                 }
