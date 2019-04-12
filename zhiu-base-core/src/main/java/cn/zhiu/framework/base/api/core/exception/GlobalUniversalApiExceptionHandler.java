@@ -1,11 +1,13 @@
 package cn.zhiu.framework.base.api.core.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-//import com.thoughtworks.xstream.core.BaseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+//import com.thoughtworks.xstream.core.BaseException;
 
 /**
  * The type Global universal api exception handler.
@@ -56,7 +58,7 @@ public class GlobalUniversalApiExceptionHandler {
 //    }
 
     @ExceptionHandler(value = Exception.class)
-//    @ResponseBody
+    @ResponseBody
     public void exceptionErrorHandler(Exception e) throws Exception {
         throw new RuntimeException(e);
 //        logger.error(e.getMessage());

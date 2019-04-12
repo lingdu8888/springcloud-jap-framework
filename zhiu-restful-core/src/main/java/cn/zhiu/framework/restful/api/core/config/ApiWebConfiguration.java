@@ -5,6 +5,7 @@ import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import com.alibaba.fastjson.util.IOUtils;
 import com.google.common.collect.Lists;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
@@ -25,7 +26,7 @@ import java.util.List;
  */
 @Configuration
 @EnableWebMvc
-//@ComponentScan("cn.zhiu.restful.api.core.config,cn.zhiu.restful.api.core.config.interceptor.api")
+@ComponentScan("cn.zhiu.restful.api.core.config,cn.zhiu.restful.api.core.config.interceptor.api")
 public class ApiWebConfiguration extends WebMvcConfigurerAdapter {
 
 

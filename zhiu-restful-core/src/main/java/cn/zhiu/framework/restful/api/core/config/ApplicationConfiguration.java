@@ -57,7 +57,7 @@ public class ApplicationConfiguration {
         AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext();
         applicationContext.register(ApiWebConfiguration.class);
         // 针对Controller的切面需要单独在当前的ApplicationContext中注册
-//        applicationContext.register(AspectJConfiguration.class);
+        applicationContext.register(AspectJConfiguration.class);
         dispatcherServlet.setApplicationContext(applicationContext);
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(dispatcherServlet);
         servletRegistrationBean.addUrlMappings("/api/*");
