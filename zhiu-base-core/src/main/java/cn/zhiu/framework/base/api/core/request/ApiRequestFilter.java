@@ -24,6 +24,10 @@ public class ApiRequestFilter implements Serializable {
     private boolean cascadeParent;
     private ApiRequest cascadeRequest;
 
+    public ApiRequestFilter() {
+
+    }
+
     public ApiRequestFilter(OperatorType operatorType, boolean cascadeParent, String field, ApiRequest apiRequest) {
         this.operatorType = operatorType;
         this.cascadeParent = cascadeParent;
