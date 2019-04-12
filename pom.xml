@@ -41,6 +41,7 @@
                 <classifier>${branch}</classifier>
                 <version>${zhiu.version}</version>
             </dependency>
+
         </dependencies>
 
     </dependencyManagement>

@@ -20,6 +20,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories(repositoryFactoryBeanClass = BaseRepositoryFactoryBean.class, basePackages = "cn.zhiu.base.api.service")
 //@EntityScan("cn.zhiu.bean")
 @ImportResource("classpath:META-INF/spring/*.xml")
+//@EnableFeignProxies(basePackages = "cn.zhiu.base.api.user.service")
 public class Main {
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
