@@ -35,24 +35,24 @@ public class ApiRequest implements Serializable {
         return new ApiRequest();
     }
 
-    public ApiRequest cascadeParent(String parentName, ApiRequest apiRequest) {
+//    public ApiRequest cascadeParent(String parentName, ApiRequest apiRequest) {
+//
+//        cascade(true, parentName, apiRequest);
+//        return this;
+//    }
+//
+//    public ApiRequest cascadeChild(String childName, ApiRequest apiRequest) {
+//        cascade(false, childName, apiRequest);
+//        return this;
+//    }
 
-        cascade(true, parentName, apiRequest);
-        return this;
-    }
-
-    public ApiRequest cascadeChild(String childName, ApiRequest apiRequest) {
-        cascade(false, childName, apiRequest);
-        return this;
-    }
-
-    private ApiRequest cascade(boolean cascadeParent, String parentName, ApiRequest apiRequest) {
-        if (filterList == null) {
-            filterList = new ArrayList<>();
-        }
-        filterList.add(new ApiRequestFilter(OperatorType.CASCADE, cascadeParent, parentName, apiRequest));
-        return this;
-    }
+//    private ApiRequest cascade(boolean cascadeParent, String parentName, ApiRequest apiRequest) {
+//        if (filterList == null) {
+//            filterList = new ArrayList<>();
+//        }
+//        filterList.add(new ApiRequestFilter(OperatorType.CASCADE, cascadeParent, parentName, apiRequest));
+//        return this;
+//    }
 
 
     public ApiRequest filter(OperatorType operator, String field, Object... values) {
