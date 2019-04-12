@@ -24,7 +24,7 @@ public class ApiRequestFilter implements Serializable {
     private boolean cascadeParent;
     private ApiRequest cascadeRequest;
 
-    public ApiRequestFilter() {
+    private ApiRequestFilter() {
 
     }
 
