@@ -5,13 +5,29 @@ import org.apache.commons.lang3.StringUtils;
 
 public class ZhiuException extends RuntimeException {
 
+    private static final long serialVersionUID = -349144155245463928L;
+
     private String code;
     private String desc;
 
 
+    public String getCode() {
+        return code;
+    }
 
-    public ZhiuException(){
-        super();
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public ZhiuException() {
     }
 
     public ZhiuException(Throwable cause) {
@@ -27,6 +43,9 @@ public class ZhiuException extends RuntimeException {
     }
 
     public void fillCodeDesc() {
+//        if (StringUtils.isNotEmpty(this.code) && StringUtils.isNotEmpty(this.desc)) {
+//            return;
+//        }
         ExceptionCode exceptionCode = this.getClass().getAnnotation(ExceptionCode.class);
         if (getCause() instanceof ZhiuException) {
             exceptionCode = getCause().getClass().getAnnotation(ExceptionCode.class);
@@ -39,6 +58,10 @@ public class ZhiuException extends RuntimeException {
                 this.desc = exceptionCode.desc();
             }
         }
+
+        System.out.println("");
+
     }
-    
+
+
 }

@@ -1,6 +1,5 @@
 package cn.zhiu.framework.restful.api.core.controller;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -36,7 +35,6 @@ public abstract class AbstractBaseController implements Serializable {
     }
 
 
-
     /**
      * 获得当前请求对象
      *
@@ -68,25 +66,8 @@ public abstract class AbstractBaseController implements Serializable {
         response.setHeader(name, value);
     }
 
-    protected String getHeader(String name){
+    protected String getHeader(String name) {
         return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getHeader(name);
     }
 
-    protected static String[] httpProxyHeaderName = new String[]{
-            "CDN-SRC-IP",
-            "HTTP_CDN_SRC_IP",
-            "CLIENTIP",
-            "X-FORWARDED-FOR",
-    };
-
-    protected String getClientIP() {
-        HttpServletRequest request = getRequest();
-        for (String headerName : httpProxyHeaderName) {
-            String clientIP = request.getHeader(headerName);
-            if (StringUtils.isNotBlank(clientIP)) {
-                return clientIP;
-            }
-        }
-        return request.getRemoteAddr();
-    }
 }

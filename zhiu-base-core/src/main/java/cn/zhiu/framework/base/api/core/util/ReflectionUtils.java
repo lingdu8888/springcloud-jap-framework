@@ -37,10 +37,13 @@ public class ReflectionUtils {
 
     /**
      * 获取一个类中的指定方法
+     *
      * @param clazz
      * @param name
      * @param parameterTypes
+     *
      * @return
+     *
      * @throws SecurityException
      * @throws NoSuchMethodException
      */
@@ -61,5 +64,29 @@ public class ReflectionUtils {
             return getMethod(clazz.getSuperclass(), name, parameterTypes);
         }
         return m;
+    }
+    
+    public static Field getFieldByFieldName(Object obj, String fieldName) {
+        for (Class<?> supperClass = obj
+                .getClass(); supperClass != Object.class; supperClass = supperClass
+                .getSuperclass()) {
+            try {
+                return supperClass.getDeclaredField(fieldName);
+            } catch (Exception e) {
+            }
+        }
+        return null;
+    }
+    public static void setValueByFieldName(Object obj, String fieldName,
+                                           Object value)
+            throws IllegalArgumentException, IllegalAccessException {
+        Field field = getFieldByFieldName(obj, fieldName);
+        if (field.isAccessible()) {
+            field.set(obj, value);
+        } else {
+            field.setAccessible(true);
+            field.set(obj, value);
+            field.setAccessible(false);
+        }
     }
 }

@@ -6,8 +6,8 @@ import cn.zhiu.framework.base.api.core.annotation.exception.ExceptionCode;
 @ExceptionCode(code = "BA9999", desc = "系统内部错误")
 public class BaseApiException extends ZhiuException {
 
+
     private static final long serialVersionUID = -8234985561203355662L;
-    
     private String remote;
 
     private String interfaceName;
@@ -63,5 +63,14 @@ public class BaseApiException extends ZhiuException {
     public BaseApiException(String message) {
         super(message);
     }
+
+
+    @Override
+    public String toString() {
+        return "{" +
+                "\"code\":\"" + this.getCode() +
+                "\", \"desc\":\"" + this.getDesc() + "\"" + "}";
+    }
+
 
 }

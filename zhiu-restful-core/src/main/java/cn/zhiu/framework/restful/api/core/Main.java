@@ -1,5 +1,6 @@
 package cn.zhiu.framework.restful.api.core;
 
+import cn.zhiu.framework.base.api.core.exception.GlobalUniversalApiExceptionHandler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +17,8 @@ import org.springframework.context.annotation.ComponentScan;
  */
 
 @SpringBootApplication(exclude = {org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration.class
-        , org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class, ElasticsearchAutoConfiguration.class, ElasticsearchDataAutoConfiguration.class})
+        , org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class, ElasticsearchAutoConfiguration.class
+        , ElasticsearchDataAutoConfiguration.class, GlobalUniversalApiExceptionHandler.class})
 @ComponentScan({"cn.zhiu.framework.configuration", "cn.zhiu.restful.api", "cn.zhiu.framework.restful.api.core", "cn.zhiu.framework.base.api.core"})
 @EnableDiscoveryClient
 @EnableFeignClients("cn.zhiu.base.api")
