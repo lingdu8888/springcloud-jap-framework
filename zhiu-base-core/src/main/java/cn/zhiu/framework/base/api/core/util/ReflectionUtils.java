@@ -22,6 +22,16 @@ public class ReflectionUtils {
 
     /**
      * 获取一个类中包含指定注解类型的字段集合
+     *
+     * @param <E>            the type parameter
+     * @param <T>            the type parameter
+     * @param clazz          the clazz
+     * @param annotationType the annotation type
+     *
+     * @return the fields annotated with
+     *
+     * @author zhuzz
+     * @time 2019 /04/15 17:04:41
      */
     public static <E, T extends Annotation> Map<Field, T> getFieldsAnnotatedWith(Class<E> clazz, Class<T> annotationType) {
         Field[] fields = clazz.getDeclaredFields();
@@ -38,14 +48,16 @@ public class ReflectionUtils {
     /**
      * 获取一个类中的指定方法
      *
-     * @param clazz
-     * @param name
-     * @param parameterTypes
+     * @param clazz          the clazz
+     * @param name           the name
+     * @param parameterTypes the parameter types
      *
-     * @return
+     * @return method
      *
-     * @throws SecurityException
-     * @throws NoSuchMethodException
+     * @throws SecurityException     the security exception
+     * @throws NoSuchMethodException the no such method exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:05:10
      */
     public static Method getMethod(Class<?> clazz, String name, Class<?>... parameterTypes) throws SecurityException, NoSuchMethodException {
         Method m;

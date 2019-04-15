@@ -11,7 +11,7 @@ import cn.zhiu.framework.restful.api.core.bean.CommonBaseRestfulApiBean;
  * @time 2019 /04/02 18:40:44
  */
 public class DataResponse<T> extends CommonBaseRestfulApiBean {
-
+    
     private T data;
 
     public DataResponse() {

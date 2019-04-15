@@ -20,6 +20,16 @@ public class BaseDaoImpl<T, ID extends Serializable> extends SimpleJpaRepository
 
     @Override
     public T findOneForUpdate(ID id) {
-        return this.entityManager.find(this.getDomainClass(),id, LockModeType.PESSIMISTIC_WRITE);
+        return this.entityManager.find(this.getDomainClass(), id, LockModeType.PESSIMISTIC_WRITE);
+    }
+
+    @Override
+    public T findOne(ID id) {
+        return this.entityManager.find(this.getDomainClass(), id);
+    }
+
+    @Override
+    public T getOne(ID id) {
+        return this.findOne(id);
     }
 }

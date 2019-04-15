@@ -61,15 +61,17 @@ public class BeanMapping {
     /**
      * 源对象 {@code source} 转换成目标bean对象 {@code D}; 将名称一致的属性进行转换; 转换完成后进行回调后续处理
      *
+     * @param <S>        原Bean的泛型定义
+     * @param <D>        目标Bean的泛型定义
      * @param source     源Bean
      * @param dstClass   目标Bean的class
      * @param biConsumer 目标Bean转换完成后的回调操作
-     * @param <S>        原Bean的泛型定义
-     * @param <D>        目标Bean的泛型定义
      *
-     * @return 目标Bean对象
+     * @return 目标Bean对象 d
      *
-     * @throws BeanMappingException
+     * @throws BeanMappingException the bean mapping exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:02:45
      */
     public static <S, D> D map(S source, Class<D> dstClass, BiConsumer<S, D> biConsumer) throws BeanMappingException {
         if (source == null) {
@@ -90,13 +92,15 @@ public class BeanMapping {
     /**
      * 源对象集合 {@code source} 转换成目标bean对象后添加到传入的集合中 {@code D}; 将名称一致的属性进行转换
      *
+     * @param <S>         原Bean的泛型定义
+     * @param <D>         目标Bean的泛型定义
      * @param source      源对象集合
      * @param destination 目标对象集合
      * @param dstClass    目标Bean的class
-     * @param <S>         原Bean的泛型定义
-     * @param <D>         目标Bean的泛型定义
      *
-     * @throws BeanMappingException
+     * @throws BeanMappingException the bean mapping exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:03:14
      */
     public static <S, D> void map(Collection<S> source, Collection<D> destination, Class<D> dstClass) throws BeanMappingException {
         map(source, destination, dstClass, null);
@@ -105,14 +109,16 @@ public class BeanMapping {
     /**
      * 源对象集合 {@code source} 转换成目标bean对象后添加到传入的集合中 {@code D}; 将名称一致的属性进行转换
      *
+     * @param <S>         原Bean的泛型定义
+     * @param <D>         目标Bean的泛型定义
      * @param source      源对象集合
      * @param destination 目标对象集合
      * @param dstClass    目标Bean的class
      * @param biConsumer  目标Bean转换完成后的回调操作
-     * @param <S>         原Bean的泛型定义
-     * @param <D>         目标Bean的泛型定义
      *
-     * @throws BeanMappingException
+     * @throws BeanMappingException the bean mapping exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:03:21
      */
     public static <S, D> void map(Collection<S> source, Collection<D> destination, Class<D> dstClass, BiConsumer<S, D> biConsumer) throws BeanMappingException {
         for (S s : source) {
@@ -123,14 +129,16 @@ public class BeanMapping {
     /**
      * 源对象集合 {@code source} 转换成目标bean对象 {@code D}; 将名称一致的属性进行转换
      *
-     * @param source   源对象集合
-     * @param dstClass 目标Bean的class
      * @param <S>      原Bean的泛型定义
      * @param <D>      目标Bean的泛型定义
+     * @param source   源对象集合
+     * @param dstClass 目标Bean的class
      *
      * @return 映射完的List集合, 默认返回ArrayList
      *
-     * @throws BeanMappingException
+     * @throws BeanMappingException the bean mapping exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:03:26
      */
     public static <S, D> List<D> mapList(Collection<S> source, Class<D> dstClass) throws BeanMappingException {
         return mapList(source, dstClass, null);
@@ -139,15 +147,17 @@ public class BeanMapping {
     /**
      * 源对象集合 {@code source} 转换成目标bean对象 {@code D}; 将名称一致的属性进行转换
      *
+     * @param <S>        原Bean的泛型定义
+     * @param <D>        目标Bean的泛型定义
      * @param source     源对象集合
      * @param dstClass   目标Bean的class
      * @param biConsumer 目标Bean转换完成后的回调操作
-     * @param <S>        原Bean的泛型定义
-     * @param <D>        目标Bean的泛型定义
      *
      * @return 映射完的List集合, 默认返回ArrayList
      *
-     * @throws BeanMappingException
+     * @throws BeanMappingException the bean mapping exception
+     * @author zhuzz
+     * @time 2019 /04/15 17:03:31
      */
     public static <S, D> List<D> mapList(Collection<S> source, Class<D> dstClass, BiConsumer<S, D> biConsumer) throws BeanMappingException {
         List<D> result = new ArrayList<>();

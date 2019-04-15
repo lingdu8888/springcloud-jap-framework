@@ -84,14 +84,19 @@ public class CoreDateUtils {
             return false;
         }
     }
-	
-	/**
-	 * 两个时间相隔天数 time1-time2
-	 * @param time1
-	 * @param time2
-	 * @return
-	 */
-	public static long diffDays(Date time1, Date time2){
+
+    /**
+     * 两个时间相隔天数 time1-time2
+     *
+     * @param time1 the time 1
+     * @param time2 the time 2
+     *
+     * @return long
+     *
+     * @author zhuzz
+     * @time 2019 /04/15 17:04:18
+     */
+    public static long diffDays(Date time1, Date time2){
         if (time1 == null || time2 == null) {
             return 0;
         }
@@ -100,9 +105,14 @@ public class CoreDateUtils {
 
     /**
      * 两个日期的时间分钟差
-     * @param start
-     * @param end
-     * @return
+     *
+     * @param start the start
+     * @param end   the end
+     *
+     * @return long
+     *
+     * @author zhuzz
+     * @time 2019 /04/15 17:04:31
      */
     public static long diffMinutes(Date start, Date end) {
         LocalDateTime startDate = LocalDateTime.ofInstant(start.toInstant(), ZoneId.systemDefault());

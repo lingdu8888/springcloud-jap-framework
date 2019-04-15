@@ -14,8 +14,13 @@ public class ByteUtils {
 	/**
 	 * 将int型转换为4位字节数组
 	 * 运算规则：高位到低位
-	 * @param i
-	 * @return
+	 *
+	 * @param i the
+	 *
+	 * @return byte [ ]
+	 *
+	 * @author zhuzz
+	 * @time 2019 /04/15 17:03:36
 	 */
 	public static byte[] intToByteArray(int i) {
 		byte[] result = new byte[4];
@@ -30,8 +35,13 @@ public class ByteUtils {
 	/**
 	 * 将4位byte数组转换成int型
 	 * 运算规则：高位到低位
-	 * @param bytes
-	 * @return
+	 *
+	 * @param bytes the bytes
+	 *
+	 * @return int
+	 *
+	 * @author zhuzz
+	 * @time 2019 /04/15 17:03:53
 	 */
 	public static int byteArrayToInt(byte[] bytes) {
 		int value = 0;
